@@ -6,7 +6,7 @@ import "./assets/img/rigo-baby.jpg";
 import "./assets/funnyface.ico";
 
 window.onload = function() {
-  let quién = [
+  let quien = [
     "Mi primo ",
     "Mi vecino ",
     "Una anciana ",
@@ -51,13 +51,21 @@ window.onload = function() {
     "hace una hora.",
     "antes de comer."
   ];
+  let excusaFinal = "";
+  // let rdm1 = Math.floor(Math.random() * quién.length);
+  // let rdm2 = Math.floor(Math.random() * acción.length);
+  // let rdm3 = Math.floor(Math.random() * objeto.length);
+  // let rdm4 = Math.floor(Math.random() * donde.length);
+  // let rdm5 = Math.floor(Math.random() * cuando.length);
 
-  let rdm1 = Math.floor(Math.random() * quién.length);
-  let rdm2 = Math.floor(Math.random() * acción.length);
-  let rdm3 = Math.floor(Math.random() * objeto.length);
-  let rdm4 = Math.floor(Math.random() * donde.length);
-  let rdm5 = Math.floor(Math.random() * cuando.length);
-
-  document.querySelector("#excusa").innerHTML =
-    quién[rdm1] + acción[rdm2] + objeto[rdm3] + donde[rdm4] + cuando[rdm5];
+  function creadorExcusa(parteExcusa) {
+    return parteExcusa[Math.floor(Math.random() * parteExcusa.length)];
+  }
+  excusaFinal =
+    creadorExcusa(quien) +
+    creadorExcusa(acción) +
+    creadorExcusa(objeto) +
+    creadorExcusa(donde) +
+    creadorExcusa(cuando);
+  document.querySelector("#excusa").innerHTML = excusaFinal;
 };
